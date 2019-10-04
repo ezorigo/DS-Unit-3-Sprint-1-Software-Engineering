@@ -7,7 +7,7 @@ import random
 
 adj = ['Awesome', 'Shiny', 'Impressive',
     'Portable', 'Improved']
-noun = ['Anvil', 'Catapult' 'Disguise' 'Mousetrap', '???']
+noun = ['Anvil', 'Catapult', 'Disguise', 'Mousetrap', '???']
 
 def generate_products(num_products=30):
     products = []
@@ -34,13 +34,16 @@ def inventory_report(products):
     for product in range(len(products)):
         flammabilities.append(products[product][1]['flammability'])
 
-    message = ("ACME CORPORATION OFFICIAL REPORT \n")
     nunique = len(set(names))
     avg_price = sum(prices)/len(prices)
     avg_weight = sum(weights)/len(weights)
     avg_flammability = sum(flammabilities)/len(flammabilities)
 
-    return message, nunique, avg_price, avg_weight, avg_flammability
+    print('{:^60}' .format('ACME CORPORATION OFFICIAL INVENTORY REPORT'))
+    print('{:.^30}: {:.^30}' .format('Unique products', nunique))
+    print('{:.^30}: {:.^30.2f}' .format('Average price', avg_price))
+    print('{:.^30}: {:.^30.2f}' .format('Average weight', avg_weight))
+    print('{:.^30}: {:.^30.3f}' .format('Average flammability', avg_flammability))
 
 if __name__ == '__main__':
-    inventory_report(generate_products())
+    inventory_report(products=generate_products())

@@ -28,7 +28,27 @@ class AcmeReportTests(unittest.TestCase):
         """Test for default num_products"""
         products = generate_products()
         self.assertEqual(len(products), 30)
-
+    def test_legal_names(self):
+        """Test that generated names for a default batch or products are all 
+        valid possible to generate"""
+        products = generate_products()
+        names = [] 
+        for product in range(len(products)):
+            names.append(products[product][1]['name'])
+        for name in range(len(names)):
+            self.assertIn(" ", names[name])
+        names_split = []
+        for name in range(len(names)):
+            split = names[name].split()
+            names_split.append(split)
+        flat_list = []
+        for sublist in names_split:
+            for name in sublist:
+                flat_list.append(name)
+        words = noun + adj
+        for word in range(len(flat_list)):
+            self.assertIn(flat_list[word], words)
+        
 
 if __name__ == '__main__':
     unittest.main()
