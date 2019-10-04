@@ -40,10 +40,10 @@ def inventory_report(products):
     avg_flammability = sum(flammabilities)/len(flammabilities)
 
     print('{:^60}' .format('ACME CORPORATION OFFICIAL INVENTORY REPORT'))
-    print('{:.^30}: {:.^30}' .format('Unique products', nunique))
-    print('{:.^30}: {:.^30.2f}' .format('Average price', avg_price))
-    print('{:.^30}: {:.^30.2f}' .format('Average weight', avg_weight))
-    print('{:.^30}: {:.^30.3f}' .format('Average flammability', avg_flammability))
+    print('{:.<30}: {:.^30}' .format('Unique products', nunique))
+    print('{:.<30}: {:.^30.2f}' .format('Average price', avg_price))
+    print('{:.<30}: {:.^30.2f}' .format('Average weight', avg_weight))
+    print('{:.<30}: {:.^30.3f}' .format('Average flammability', avg_flammability))
 
 if __name__ == '__main__':
     inventory_report(products=generate_products())

@@ -24,9 +24,9 @@ class Product:
         steal = self.price/self.weight
         if steal < 0.5:
             message = "Not so stealable..."
-        if (steal >= 0.5) & (steal < 1.0):
+        elif (steal >= 0.5) & (steal < 1.0):
             message = "Kinda stealable."
-        elif steal >= 1.0:
+        else:
             message = "Very stealable!"
         return message
     
@@ -34,9 +34,9 @@ class Product:
         explode = self.flammability * self.weight
         if explode < 10:
             message = "...fizzle."
-        if (explode >= 10) & (explode < 50):
+        elif (explode >= 10) & (explode < 50):
             message = "...boom!"
-        elif explode >= 50:
+        else:
             message = "...BABOOM!!"
         return message
 
@@ -59,8 +59,8 @@ class BoxingGlove(Product):
     def punch(self):
         if self.weight < 5:
             message = "That tickles."
-        if (self.weight >=5) & (self.weight < 15):
+        elif (self.weight >=5) & (self.weight < 15):
             message = "Hey that hurt!"
-        elif self.weight >= 15:
+        else:
             message = "OUCH!"
         return message
